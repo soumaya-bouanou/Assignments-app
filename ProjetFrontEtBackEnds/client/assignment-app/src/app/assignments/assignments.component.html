@@ -7,9 +7,7 @@
     </button>-->
 
 
-    <button mat-flat-button color="accent" >
-      Connexion
-    </button>
+    
 
     <a routerLink="/add">
       <button mat-flat-button color="accent">
@@ -18,7 +16,6 @@
     </a>
 
   </div>
-
 
   <mat-list *ngFor="let assignment of assignments">
     <a routerLink="/assignment/{{assignment.id}}">

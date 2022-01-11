@@ -20,4 +20,14 @@ export class AppComponent {
       this.router.navigate(["/home"]);
     }
   }
+
+
+  logout() {
+    if(!this.authService.loggedOut) {
+      this.authService.logOut();
+    } else {
+      this.authService.logIn();
+      this.router.navigate(["/home"]);
+    }
+  }
 }

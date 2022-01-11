@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   loggedIn = false;
+  loggedOut = false;
+
 
   constructor() { }
 
@@ -16,7 +18,7 @@ export class AuthService {
 
   // appelé par bouton de deconnexion
   logOut() {
-    this.loggedIn = false;
+    this.loggedOut = false;
   }
 
   // vérification du rôle. Dans cet exemple simple on dit qu'on est admin
