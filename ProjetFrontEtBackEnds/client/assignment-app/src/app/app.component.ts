@@ -10,9 +10,14 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent {
   titre = "Application de gestion des Assignments";
 
-  constructor(private authService:AuthService, private router:Router) {}
+  constructor(public authService: AuthService,private router : Router)
+  {}
 
-  login() {
+  onLogout()
+  {
+    this.authService.logout();
+  }
+  /*login() {
     if(!this.authService.loggedIn) {
       this.authService.logIn();
     } else {
@@ -29,5 +34,5 @@ export class AppComponent {
       this.authService.logIn();
       this.router.navigate(["/home"]);
     }
-  }
+  }*/
 }

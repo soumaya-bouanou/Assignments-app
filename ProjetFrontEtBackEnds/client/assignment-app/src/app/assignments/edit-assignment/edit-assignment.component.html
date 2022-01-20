@@ -1,7 +1,7 @@
-<div class="container" *ngIf="assignment">
+<div class="container"  *ngIf="assignment" >
   <h1>Edition de l'assignment {{assignment.nom}}</h1>
   <form ngForm class="form">
-    <mat-form-field>
+    <mat-form-field >
       <input matInput placeholder="Edition du nom"
       [(ngModel)]="nomAssignment" name="assignment-name">
     </mat-form-field>
@@ -12,7 +12,7 @@
       </mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="onSaveAssignment()">
+    <button  mat-raised-button color="primary" (click)="onSaveAssignment()">
       Sauver
     </button>
   </form>

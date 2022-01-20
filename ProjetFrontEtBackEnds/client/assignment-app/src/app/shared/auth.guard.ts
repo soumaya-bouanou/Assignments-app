@@ -16,19 +16,32 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(
+  canActivate(route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): boolean {
+//console.log("INside can activate "+this.authService.roles);
+if (this.authService.isAdmin())
+return true;
+else
+{
+this.router.navigate(['forbidden']);
+return false;
+}
+
+}
+
+  /*canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // si on renvoie true, la navigation vers route est autorisée, sinon refusée
     //return true;
 
     return this.authService.isAdmin()
-    .then((authentifie): boolean => {
+   .then((authentifie): boolean => {
       if(authentifie) return true;
       else {
         this.router.navigate(["/home"]);
         return false;
       }
     })
-  }
+  }*/
 }

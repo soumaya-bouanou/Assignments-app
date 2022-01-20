@@ -16,7 +16,7 @@ export class AssignmentDetailComponent implements OnInit {
 
   constructor(
     private assignmentsService: AssignmentsService,
-    private authService:AuthService,
+    public authService:AuthService,
     private route: ActivatedRoute,
     private router: Router
   ) {}

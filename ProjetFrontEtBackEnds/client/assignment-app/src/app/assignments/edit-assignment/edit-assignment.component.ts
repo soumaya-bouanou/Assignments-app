@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/shared/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
@@ -16,7 +17,8 @@ export class EditAssignmentComponent implements OnInit {
   constructor(
     private assignmentsService: AssignmentsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
