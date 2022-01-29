@@ -97,9 +97,9 @@ export class AssignmentsService {
   peuplerBD() {
     bdInitialAssignments.forEach(a => {
         let nouvelAssignment = new Assignment();
-        nouvelAssignment.nom = a.nom;
+        nouvelAssignment.nom = a.NomEtudiant;
         nouvelAssignment.id = a.id;
-        nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
+        nouvelAssignment.dateDeRendu = new Date(a.DateDeRendu);
         nouvelAssignment.rendu = a.rendu;
 
         this.addAssignment(nouvelAssignment)
@@ -117,7 +117,7 @@ export class AssignmentsService {
         const nouvelAssignment = new Assignment();
 
         nouvelAssignment.id = a.id;
-        nouvelAssignment.nom = a.nom;
+        nouvelAssignment.nom = a.NomEtudiant;
         nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
         nouvelAssignment.rendu = a.rendu;
 
