@@ -18,13 +18,14 @@ export class AssignmentsComponent implements OnInit {
 
   // proprietes de pagination
   page: number = 1;
-  limit: number = 10;
+  limit: number = 20;
   totalDocs?: number;
   totalPages?: number;
   hasPrevPage?: boolean;
   prevPage!: number;
   hasNextPage?: boolean;
   nextPage!: number;
+  assignmentTransmis: any;
 
   constructor(
     private assignmentsService: AssignmentsService,
@@ -107,4 +108,8 @@ export class AssignmentsComponent implements OnInit {
   pageSuivante() {
       this.getAssignments(this.nextPage, this.limit);
   }
+
+
+
+ 
 }

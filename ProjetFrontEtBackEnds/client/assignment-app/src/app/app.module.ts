@@ -24,6 +24,8 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 import { AuthGuard } from './shared/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './assignments/login/login.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 const routes:Routes = [
   {
@@ -64,8 +66,9 @@ const routes:Routes = [
     FormsModule, MatFormFieldModule, MatInputModule,
     MatDatepickerModule, MatNativeDateModule,
     MatListModule, MatCardModule, MatCheckboxModule,
-    MatSlideToggleModule,HttpClientModule,
-    RouterModule.forRoot(routes)
+    MatSlideToggleModule,HttpClientModule,MatSnackBarModule,
+    RouterModule.forRoot(routes),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

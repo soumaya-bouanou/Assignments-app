@@ -17,22 +17,5 @@ export class AppComponent {
   {
     this.authService.logout();
   }
-  /*login() {
-    if(!this.authService.loggedIn) {
-      this.authService.logIn();
-    } else {
-      this.authService.logOut();
-      this.router.navigate(["/home"]);
-    }
-  }
-
-
-  logout() {
-    if(!this.authService.loggedOut) {
-      this.authService.logOut();
-    } else {
-      this.authService.logIn();
-      this.router.navigate(["/home"]);
-    }
-  }*/
+  
 }

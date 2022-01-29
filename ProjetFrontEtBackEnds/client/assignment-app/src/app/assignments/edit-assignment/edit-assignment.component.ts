@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-edit-assignment',
@@ -13,12 +15,14 @@ export class EditAssignmentComponent implements OnInit {
   assignment!: Assignment | undefined;
   nomAssignment?: string;
   dateDeRendu?: Date;
+  assignmentTransmis: any;
 
   constructor(
-    private assignmentsService: AssignmentsService,
+    public assignmentsService: AssignmentsService,
     private route: ActivatedRoute,
     private router: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    public snackbar:MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -46,7 +50,23 @@ export class EditAssignmentComponent implements OnInit {
         this.dateDeRendu = assignment?.dateDeRendu;
       });
   }
+  onAssignmentRendu() {
+    if (this.assignmentTransmis) {
+      this.assignmentTransmis.rendu = true;
 
+      this.assignmentsService
+        .updateAssignment(this.assignmentTransmis)
+        .subscribe((reponse) => {
+          console.log(reponse.message);
+          // Pour cacher l'affichage du détail (ne change pas la
+          // valeur de l'assignment dans le tableau)
+          this.assignmentTransmis = undefined;
+
+          // On re-affiche la liste
+          this.router.navigate(['/home']);
+        });
+    }
+  }
   onSaveAssignment() {
     if (!this.assignment) return;
 
@@ -65,5 +85,12 @@ export class EditAssignmentComponent implements OnInit {
         // navigation vers la home page
         this.router.navigate(['/home']);
       });
+
+      this.snackbar.open("C'est modifier ",'Succes !!',{
+        duration:2000,
+       // verticalPosition: 'top',
+        horizontalPosition:'center'
+      });
+
   }
 }

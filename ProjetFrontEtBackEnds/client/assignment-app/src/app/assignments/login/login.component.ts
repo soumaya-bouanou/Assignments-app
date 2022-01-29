@@ -12,7 +12,7 @@ import { User } from '../models/user.model';
 export class LoginComponent implements OnInit {
 user = new User();
 erreur=0;
-constructor(private authService : AuthService,
+constructor(public authService : AuthService,
   public router: Router) { }
 
 ngOnInit(): void {

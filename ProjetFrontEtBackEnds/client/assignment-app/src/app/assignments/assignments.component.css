@@ -16,3 +16,9 @@
 .ajouterBtn {
   align-self: flex-end;
 }
+
+.pagePrecedente{
+  justify-content: center;
+  width: left;
+
+}

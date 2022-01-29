@@ -83,7 +83,5 @@ export class AssignmentDetailComponent implements OnInit {
     }
   }
 
-  isAdmin():boolean {
-    return this.authService.loggedIn;
-  }
+ 
 }
